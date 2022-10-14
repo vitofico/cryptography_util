@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='cryptography_util',
-      version='0.2',
+      version='0.3',
       description='Small utility script for encrypt/decrypt files using Fernet algorithm.',
       url='https://github.com/vitofico/cryptography_util',
       author='Vito Mario Fico',

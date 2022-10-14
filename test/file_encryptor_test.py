@@ -4,7 +4,7 @@ import os
 
 sys.path.insert(0, "../")
 
-from crypto_lib.file_encryptor import FileEncryptor
+from cryptography_util.file_encryptor import FileEncryptor
 
 
 

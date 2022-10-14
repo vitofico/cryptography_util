@@ -1,6 +1,6 @@
 import argparse
 
-from crypto_lib.file_encryptor import FileEncryptor
+from cryptography_util.file_encryptor import FileEncryptor
 
 if __name__ == '__main__':
     """

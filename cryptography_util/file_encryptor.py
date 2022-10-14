@@ -1,4 +1,6 @@
 from cryptography.fernet import Fernet
+import ntpath
+
 
 class FileEncryptor():
     def __init__(self) -> None:
@@ -53,6 +55,7 @@ class FileEncryptor():
         fernet = Fernet(self.key)
         
         # opening the original file to encrypt
+        
         with open(file_to_encrypt, 'rb') as file:
             original = file.read()
             
@@ -61,7 +64,10 @@ class FileEncryptor():
         
         # opening the file in write mode and
         # writing the encrypted data
-        out_filename = f'encrypted_{file_to_encrypt}'
+
+        directory = ntpath.dirname(file_to_encrypt)
+        out_filename = ntpath.join(directory, f'encrypted_{ntpath.basename(file_to_encrypt)}')
+        
         with open(out_filename, 'wb') as encrypted_file:
             encrypted_file.write(encrypted)
 
@@ -88,8 +94,8 @@ class FileEncryptor():
         
         # opening the file in write mode and
         # writing the decrypted data
-        out_filename = f"decrypted_{file_to_decrypt}"
-        
+        directory = ntpath.dirname(file_to_decrypt)
+        out_filename = ntpath.join(directory, f'decrypted_{ntpath.basename(file_to_decrypt)}')
         with open(out_filename, 'wb') as dec_file:
             dec_file.write(decrypted)
 
